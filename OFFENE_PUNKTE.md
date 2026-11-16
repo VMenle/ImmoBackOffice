@@ -17,3 +17,5 @@
 4. **E-Mail Anbieter** von info@energy-leisure.de in der Datenschutzerklärung ergänzen, falls nicht IONOS.
 
 5. **n8n**: Formular `immoback_testlauf` im Workflow "MODUL_Formularflow_Kontaktanfragen" unter FORMS eintragen.
+
+6. **AVV mit IONOS** prüfen. Falls vorhanden, kann in der Datenschutzerklärung Abschnitt 4 ein Hinweis darauf ergänzt werden.
