@@ -1,5 +1,5 @@
 /* ImmoBack – Landingpage – style.css */
-/* Erstellt: 16.11.2026 · Geändert: 16.11.2026 (Foto entfernt) */
+/* Erstellt: 16.11.2026 · Geändert: 16.11.2026 (Foto entfernt; keine automatische Silbentrennung) */
 
 /* Schrift: Inter, falls auf dem Gerät installiert, sonst Systemschrift. Keine externen Schriftquellen. */
 
@@ -62,7 +62,8 @@ a{color:var(--navy);}
 section{padding:72px 0;}
 .section-alt{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
 .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:10px;}
-h1,h2,h3{color:var(--navy);letter-spacing:-.02em;line-height:1.2;overflow-wrap:break-word;hyphens:auto;}
+h1,h2,h3{color:var(--navy);letter-spacing:-.02em;line-height:1.2;hyphens:manual;text-wrap:balance;}
+body{hyphens:manual;}
 h2{font-size:clamp(28px,4.2vw,40px);font-weight:800;margin-bottom:14px;}
 h3{font-size:19px;font-weight:700;margin-bottom:8px;}
 .lead{font-size:18px;color:var(--text-2);max-width:720px;}
@@ -74,7 +75,7 @@ h3{font-size:19px;font-weight:700;margin-bottom:8px;}
 .hero{padding:56px 0 64px;background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);}
 .badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);color:var(--navy-2);font-size:14px;font-weight:600;padding:7px 14px;border-radius:999px;margin-bottom:22px;}
 .badge-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);}
-.hero h1{font-size:clamp(32px,5.6vw,56px);font-weight:800;max-width:900px;margin-bottom:20px;}
+.hero h1{font-size:clamp(28px,5.6vw,56px);font-weight:800;max-width:900px;margin-bottom:20px;}
 .hero h1 em{font-style:normal;color:var(--accent-dark);}
 .hero .lead{font-size:clamp(17px,2vw,20px);max-width:780px;margin-bottom:30px;}
 .hero-ctas{display:flex;flex-direction:column;gap:12px;margin-bottom:38px;}
