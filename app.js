@@ -1,5 +1,5 @@
-// ImmoBack – Landingpage – app.js
-// Erstellt: 16.11.2026
+// BBack – Landingpage – app.js
+// Erstellt: 16.11.2026 · Geändert: 18.11.2026 (Felder Branche und Belege pro Monat, Formular bback_testlauf)
 // Mobile Navigation + Testlauf-Formular an den zentralen n8n Formularflow
 // (Workflow "MODUL_Formularflow_Kontaktanfragen", Webhook /webhook/kontakt-anfrage).
 // Es werden keine Zugangsdaten im Browser benötigt oder gespeichert.
@@ -10,9 +10,9 @@
   // ---- Konfiguration --------------------------------------------------------
   var CONFIG = {
     endpoint: 'https://n8n.energy-leisure.de/webhook/kontakt-anfrage',
-    formId: 'immoback_testlauf',      // muss im n8n Knoten "Code – Prüfen & bereinigen" unter FORMS stehen
-    site: 'immoback',
-    consentVersion: '2026-11-16',     // = Stand der Datenschutzerklärung
+    formId: 'bback_testlauf',           // muss im n8n Knoten "Code – Prüfen & bereinigen" unter FORMS stehen
+    site: 'bback',
+    consentVersion: '2026-11-18',     // = Stand der Datenschutzerklärung
     timeoutMs: 15000,
     fallbackMail: 'info@energy-leisure.de'
   };
@@ -74,7 +74,8 @@
     if (!val('company')) bad.push('company');
     if (!EMAIL_RE.test(val('email'))) bad.push('email');
     if (val('mobile') && !PHONE_RE.test(val('mobile'))) bad.push('mobile');
-    if (!val('units')) bad.push('options');
+    if (!val('branche')) bad.push('branche');
+    if (!val('belege')) bad.push('belege');
     if (!form.elements.consent.checked) bad.push('consent');
     bad.forEach(function (f) { setInvalid(f, true); });
     return bad;
@@ -110,7 +111,7 @@
         email: val('email'),
         mobile: val('mobile')
       },
-      options: [val('units')],
+      options: [val('branche'), val('belege')],
       message: 'Anfrage Gratis-Testlauf (20 Rechnungen)',
       consent: { given: true, version: CONFIG.consentVersion },
       meta: { hp: val('website'), elapsed_ms: Date.now() - startedAt }
@@ -147,7 +148,10 @@
           return;
         }
         if (r.status === 400 && Array.isArray(r.data.fields) && r.data.fields.length) {
-          r.data.fields.forEach(function (f) { setInvalid(String(f), true); });
+          r.data.fields.forEach(function (f) {
+            if (f === 'options') { setInvalid('branche', true); setInvalid('belege', true); }
+            else setInvalid(String(f), true);
+          });
           showStatus('err', 'Bitte prüfen Sie die markierten Felder.');
           return;
         }

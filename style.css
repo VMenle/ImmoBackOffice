@@ -1,4 +1,4 @@
-/* ImmoBack – Landingpage – style.css */
+/* BBack – Landingpage – style.css · Geändert: 18.11.2026 (Name) */
 /* Erstellt: 16.11.2026 · Geändert: 16.11.2026 (Foto entfernt; keine automatische Silbentrennung; Vorteile im ersten Bildschirm) */
 
 /* Schrift: Inter, falls auf dem Gerät installiert, sonst Systemschrift. Keine externen Schriftquellen. */
@@ -94,6 +94,7 @@ h3{font-size:19px;font-weight:700;margin-bottom:8px;}
 .benefit-icon svg{width:20px;height:20px;}
 @media (max-width:639px){
   .hero-grid{gap:12px;}
+  .hero-badge{font-size:12px;padding:5px 10px;gap:6px;letter-spacing:-.01em;}
   .hero-ctas .btn{min-height:46px;padding:10px 18px;}
 }
 @media (max-width:379px){
